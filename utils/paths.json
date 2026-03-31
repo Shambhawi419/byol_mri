@@ -1,0 +1,7 @@
+{
+    "YOUR_MACHINE_NAME": {
+        "fastmriknee": "/path/to/your/data/",
+        "fastmribrain": "/path/to/your/data/",
+        "experiments": "/path/to/your/experiments/"
+    }
+}

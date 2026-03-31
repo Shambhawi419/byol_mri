@@ -1,0 +1,12 @@
+data/
+experiments/
+__pycache__/
+*.pyc
+*.pth
+*.pt
+*.h5
+*.zip
+.DS_Store
+*.egg-info/
+dist/
+build/
