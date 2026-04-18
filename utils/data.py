@@ -121,3 +121,22 @@ class ZhifengData(Dataset):
         sample = self.transform(img, fname, slice_id, sequence)
 
         return sample
+def collate_fn_pad(batch):
+    """Custom collate that pads variable width tensors to same size."""
+    import torch
+    # find max width in batch
+    max_w = max(b.kspace_und.shape[-2] for b in batch)
+    
+    padded = []
+    for b in batch:
+        w = b.kspace_und.shape[-2]
+        if w < max_w:
+            pad = max_w - w
+            b = b._replace(
+                kspace_und=torch.nn.functional.pad(b.kspace_und, (0, 0, 0, pad)),
+                mask=torch.nn.functional.pad(b.mask, (0, 0, 0, pad)),
+            )
+        padded.append(b)
+    
+    from torch.utils.data.dataloader import default_collate
+    return default_collate(padded)

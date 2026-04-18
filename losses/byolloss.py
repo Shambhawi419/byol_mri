@@ -38,7 +38,9 @@ class BYOLLoss(nn.Module):
         Returns:
             scalar loss
         """
-        online_pred = F.normalize(online_pred, dim=-1, p=2)
-        target_proj = F.normalize(target_proj, dim=-1, p=2)
+        online_pred = F.normalize(online_pred, dim=-1, p=2, eps=1e-8)
+        target_proj = F.normalize(target_proj, dim=-1, p=2, eps=1e-8)
+        online_pred = torch.nan_to_num(online_pred, nan=0.0)
+        target_proj = torch.nan_to_num(target_proj, nan=0.0)
         loss = 2 - 2 * (online_pred * target_proj).sum(dim=-1)
         return loss.mean()

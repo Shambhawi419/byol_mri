@@ -1,7 +1,6 @@
 {
-    "YOUR_MACHINE_NAME": {
-        "fastmriknee": "/path/to/your/data/",
-        "fastmribrain": "/path/to/your/data/",
-        "experiments": "/path/to/your/experiments/"
+    "4a99b3816bf9": {
+        "fastmriknee": "/workspace/data/",
+        "experiments": "/workspace/data/experiments/"
     }
 }

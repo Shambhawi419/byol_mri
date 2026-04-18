@@ -1,0 +1,248 @@
+trainacc: [2, 4, 6, 8]
+valacc: [2, 4, 6, 8]
+tnv: 0
+vnv: 0
+viznv: 0
+mtype: random
+dset: fastmriknee
+seq_types: ['CORPDFS_FBK']
+bs: 2
+ne: 100
+lr: 0.001
+dv: cuda
+dp: None
+num_workers: 4
+tau: 0.996
+proj_dim: 256
+hidden_dim: 4096
+ckpt: None
+pf: 10
+num_cascades: 12
+pools: 4
+chans: 18
+sens_pools: 4
+sens_chans: 8
+data_path = /workspace/data
+experiment_path = /workspace/data/experiments/Experiment_2026_04_18_17_56_56
+No. of trainable parameters (online): 33115974
+num GPUs available: 1
+num GPUs using: 1
+GPU model: NVIDIA A100-SXM4-80GB
+/workspace/byol_mri/utils/data.py:20: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.library = torch.load(lib_path)
+Training set: No. of volumes: 83 | No. of slices: 2940
+CORPDFS_FBK : 83 | 2940
+Validation set: No. of volumes: 21 | No. of slices: 746
+CORPDFS_FBK : 21 | 746
+Optimizer: RMSprop | LR: 0.001 | Tau: 0.996
+  0%|          | 0/1470 [00:00<?, ?batch/s]/workspace/byol_mri/utils/data.py:66: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(self.root,"multicoil_"+self.key, f"{fname}.pt"))
+/workspace/byol_mri/utils/data.py:66: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(self.root,"multicoil_"+self.key, f"{fname}.pt"))
+/workspace/byol_mri/utils/data.py:66: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(self.root,"multicoil_"+self.key, f"{fname}.pt"))
+/workspace/byol_mri/utils/data.py:66: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(self.root,"multicoil_"+self.key, f"{fname}.pt"))
+Epoch 1 [Training]:   0%|          | 0/1470 [00:05<?, ?batch/s]Epoch 1 [Training]:   0%|          | 0/1470 [00:08<?, ?batch/s, train_loss=2.22]Epoch 1 [Training]:   0%|          | 1/1470 [00:08<3:34:43,  8.77s/batch, train_loss=2.22]Epoch 1 [Training]:   0%|          | 1/1470 [00:08<3:34:43,  8.77s/batch, train_loss=2.22]Epoch 1 [Training]:   0%|          | 1/1470 [00:10<3:34:43,  8.77s/batch, train_loss=0.387]Epoch 1 [Training]:   0%|          | 2/1470 [00:10<1:49:21,  4.47s/batch, train_loss=0.387]Epoch 1 [Training]:   0%|          | 2/1470 [00:10<1:49:21,  4.47s/batch, train_loss=0.387]Epoch 1 [Training]:   0%|          | 2/1470 [00:11<1:49:21,  4.47s/batch, train_loss=0.447]Epoch 1 [Training]:   0%|          | 3/1470 [00:11<1:15:40,  3.10s/batch, train_loss=0.447]Epoch 1 [Training]:   0%|          | 3/1470 [00:11<1:15:40,  3.10s/batch, train_loss=0.447]Epoch 1 [Training]:   0%|          | 3/1470 [00:13<1:15:40,  3.10s/batch, train_loss=0.199]Epoch 1 [Training]:   0%|          | 4/1470 [00:13<59:50,  2.45s/batch, train_loss=0.199]  Epoch 1 [Training]:   0%|          | 4/1470 [00:13<59:50,  2.45s/batch, train_loss=0.199]Epoch 1 [Training]:   0%|          | 4/1470 [00:14<59:50,  2.45s/batch, train_loss=0.0542]Epoch 1 [Training]:   0%|          | 5/1470 [00:14<51:07,  2.09s/batch, train_loss=0.0542]Epoch 1 [Training]:   0%|          | 5/1470 [00:14<51:07,  2.09s/batch, train_loss=0.0542]Epoch 1 [Training]:   0%|          | 5/1470 [00:16<51:07,  2.09s/batch, train_loss=0.0211]Epoch 1 [Training]:   0%|          | 6/1470 [00:16<45:49,  1.88s/batch, train_loss=0.0211]Epoch 1 [Training]:   0%|          | 6/1470 [00:16<45:49,  1.88s/batch, train_loss=0.0211]Epoch 1 [Training]:   0%|          | 6/1470 [00:17<45:49,  1.88s/batch, train_loss=0.01]  Epoch 1 [Training]:   0%|          | 7/1470 [00:17<42:25,  1.74s/batch, train_loss=0.01]Epoch 1 [Training]:   0%|          | 7/1470 [00:17<42:25,  1.74s/batch, train_loss=0.01]Epoch 1 [Training]:   0%|          | 7/1470 [00:18<42:25,  1.74s/batch, train_loss=0.0057]Epoch 1 [Training]:   1%|          | 8/1470 [00:18<40:12,  1.65s/batch, train_loss=0.0057]Epoch 1 [Training]:   1%|          | 8/1470 [00:18<40:12,  1.65s/batch, train_loss=0.0057]Epoch 1 [Training]:   1%|          | 8/1470 [00:20<40:12,  1.65s/batch, train_loss=0.00362]Epoch 1 [Training]:   1%|          | 9/1470 [00:20<38:43,  1.59s/batch, train_loss=0.00362]Epoch 1 [Training]:   1%|          | 9/1470 [00:20<38:43,  1.59s/batch, train_loss=0.00362]Epoch 1 [Training]:   1%|          | 9/1470 [00:21<38:43,  1.59s/batch, train_loss=0.00262]Epoch 1 [Training]:   1%|          | 10/1470 [00:21<37:42,  1.55s/batch, train_loss=0.00262]Epoch 1 [Training]:   1%|          | 10/1470 [00:21<37:42,  1.55s/batch, train_loss=0.00262]Epoch 1 [Training]:   1%|          | 10/1470 [00:23<37:42,  1.55s/batch, train_loss=0.00193]Epoch 1 [Training]:   1%|          | 11/1470 [00:23<37:00,  1.52s/batch, train_loss=0.00193]Epoch 1 [Training]:   1%|          | 11/1470 [00:23<37:00,  1.52s/batch, train_loss=0.00193]Epoch 1 [Training]:   1%|          | 11/1470 [00:24<37:00,  1.52s/batch, train_loss=0.00153]Epoch 1 [Training]:   1%|          | 12/1470 [00:24<36:30,  1.50s/batch, train_loss=0.00153]Epoch 1 [Training]:   1%|          | 12/1470 [00:24<36:30,  1.50s/batch, train_loss=0.00153]Epoch 1 [Training]:   1%|          | 12/1470 [00:26<36:30,  1.50s/batch, train_loss=0.00117]Epoch 1 [Training]:   1%|          | 13/1470 [00:26<36:11,  1.49s/batch, train_loss=0.00117]Epoch 1 [Training]:   1%|          | 13/1470 [00:26<36:11,  1.49s/batch, train_loss=0.00117]Epoch 1 [Training]:   1%|          | 13/1470 [00:27<36:11,  1.49s/batch, train_loss=0.000959]Epoch 1 [Training]:   1%|          | 14/1470 [00:27<35:56,  1.48s/batch, train_loss=0.000959]Epoch 1 [Training]:   1%|          | 14/1470 [00:27<35:56,  1.48s/batch, train_loss=0.000959]Epoch 1 [Training]:   1%|          | 14/1470 [00:29<35:56,  1.48s/batch, train_loss=0.000754]Epoch 1 [Training]:   1%|          | 15/1470 [00:29<35:47,  1.48s/batch, train_loss=0.000754]Epoch 1 [Training]:   1%|          | 15/1470 [00:29<35:47,  1.48s/batch, train_loss=0.000754]Epoch 1 [Training]:   1%|          | 15/1470 [00:30<35:47,  1.48s/batch, train_loss=0.000646]Epoch 1 [Training]:   1%|          | 16/1470 [00:30<35:37,  1.47s/batch, train_loss=0.000646]Epoch 1 [Training]:   1%|          | 16/1470 [00:30<35:37,  1.47s/batch, train_loss=0.000646]Epoch 1 [Training]:   1%|          | 16/1470 [00:32<35:37,  1.47s/batch, train_loss=0.00054] Epoch 1 [Training]:   1%|          | 17/1470 [00:32<35:31,  1.47s/batch, train_loss=0.00054]Epoch 1 [Training]:   1%|          | 17/1470 [00:32<35:31,  1.47s/batch, train_loss=0.00054]Epoch 1 [Training]:   1%|          | 17/1470 [00:33<35:31,  1.47s/batch, train_loss=0.000508]Epoch 1 [Training]:   1%|          | 18/1470 [00:33<35:26,  1.46s/batch, train_loss=0.000508]Epoch 1 [Training]:   1%|          | 18/1470 [00:33<35:26,  1.46s/batch, train_loss=0.000508]Epoch 1 [Training]:   1%|          | 18/1470 [00:35<35:26,  1.46s/batch, train_loss=0.000444]Epoch 1 [Training]:   1%|▏         | 19/1470 [00:35<35:22,  1.46s/batch, train_loss=0.000444]Epoch 1 [Training]:   1%|▏         | 19/1470 [00:35<35:22,  1.46s/batch, train_loss=0.000444]Epoch 1 [Training]:   1%|▏         | 19/1470 [00:36<35:22,  1.46s/batch, train_loss=0.000412]Epoch 1 [Training]:   1%|▏         | 20/1470 [00:36<35:18,  1.46s/batch, train_loss=0.000412]Epoch 1 [Training]:   1%|▏         | 20/1470 [00:36<35:18,  1.46s/batch, train_loss=0.000412]Epoch 1 [Training]:   1%|▏         | 20/1470 [00:37<35:18,  1.46s/batch, train_loss=0.000334]Epoch 1 [Training]:   1%|▏         | 21/1470 [00:37<35:16,  1.46s/batch, train_loss=0.000334]Epoch 1 [Training]:   1%|▏         | 21/1470 [00:37<35:16,  1.46s/batch, train_loss=0.000334]Epoch 1 [Training]:   1%|▏         | 21/1470 [00:39<35:16,  1.46s/batch, train_loss=0.000308]Epoch 1 [Training]:   1%|▏         | 22/1470 [00:39<35:14,  1.46s/batch, train_loss=0.000308]Epoch 1 [Training]:   1%|▏         | 22/1470 [00:39<35:14,  1.46s/batch, train_loss=0.000308]Epoch 1 [Training]:   1%|▏         | 22/1470 [00:40<35:14,  1.46s/batch, train_loss=0.000242]Epoch 1 [Training]:   2%|▏         | 23/1470 [00:40<35:12,  1.46s/batch, train_loss=0.000242]Epoch 1 [Training]:   2%|▏         | 23/1470 [00:40<35:12,  1.46s/batch, train_loss=0.000242]Epoch 1 [Training]:   2%|▏         | 23/1470 [00:42<35:12,  1.46s/batch, train_loss=0.000234]Epoch 1 [Training]:   2%|▏         | 24/1470 [00:42<35:11,  1.46s/batch, train_loss=0.000234]Epoch 1 [Training]:   2%|▏         | 24/1470 [00:42<35:11,  1.46s/batch, train_loss=0.000234]Epoch 1 [Training]:   2%|▏         | 24/1470 [00:43<35:11,  1.46s/batch, train_loss=0.000179]Epoch 1 [Training]:   2%|▏         | 25/1470 [00:43<35:10,  1.46s/batch, train_loss=0.000179]Epoch 1 [Training]:   2%|▏         | 25/1470 [00:43<35:10,  1.46s/batch, train_loss=0.000179]Epoch 1 [Training]:   2%|▏         | 25/1470 [00:45<35:10,  1.46s/batch, train_loss=0.000184]Epoch 1 [Training]:   2%|▏         | 26/1470 [00:45<35:09,  1.46s/batch, train_loss=0.000184]Epoch 1 [Training]:   2%|▏         | 26/1470 [00:45<35:09,  1.46s/batch, train_loss=0.000184]Epoch 1 [Training]:   2%|▏         | 26/1470 [00:46<35:09,  1.46s/batch, train_loss=0.000138]Epoch 1 [Training]:   2%|▏         | 27/1470 [00:46<35:06,  1.46s/batch, train_loss=0.000138]Epoch 1 [Training]:   2%|▏         | 27/1470 [00:46<35:06,  1.46s/batch, train_loss=0.000138]Epoch 1 [Training]:   2%|▏         | 27/1470 [00:48<35:06,  1.46s/batch, train_loss=0.000151]Epoch 1 [Training]:   2%|▏         | 28/1470 [00:48<35:05,  1.46s/batch, train_loss=0.000151]Epoch 1 [Training]:   2%|▏         | 28/1470 [00:48<35:05,  1.46s/batch, train_loss=0.000151]Epoch 1 [Training]:   2%|▏         | 28/1470 [00:49<35:05,  1.46s/batch, train_loss=0.000114]Epoch 1 [Training]:   2%|▏         | 29/1470 [00:49<35:03,  1.46s/batch, train_loss=0.000114]Epoch 1 [Training]:   2%|▏         | 29/1470 [00:49<35:03,  1.46s/batch, train_loss=0.000114]Epoch 1 [Training]:   2%|▏         | 29/1470 [00:51<35:03,  1.46s/batch, train_loss=0.000135]Epoch 1 [Training]:   2%|▏         | 30/1470 [00:51<35:02,  1.46s/batch, train_loss=0.000135]Epoch 1 [Training]:   2%|▏         | 30/1470 [00:51<35:02,  1.46s/batch, train_loss=0.000135]Epoch 1 [Training]:   2%|▏         | 30/1470 [00:52<35:02,  1.46s/batch, train_loss=0.000106]Epoch 1 [Training]:   2%|▏         | 31/1470 [00:52<34:59,  1.46s/batch, train_loss=0.000106]Epoch 1 [Training]:   2%|▏         | 31/1470 [00:52<34:59,  1.46s/batch, train_loss=0.000106]Epoch 1 [Training]:   2%|▏         | 31/1470 [00:54<34:59,  1.46s/batch, train_loss=0.000136]Epoch 1 [Training]:   2%|▏         | 32/1470 [00:54<34:57,  1.46s/batch, train_loss=0.000136]Epoch 1 [Training]:   2%|▏         | 32/1470 [00:54<34:57,  1.46s/batch, train_loss=0.000136]Epoch 1 [Training]:   2%|▏         | 32/1470 [00:55<34:57,  1.46s/batch, train_loss=0.000112]Epoch 1 [Training]:   2%|▏         | 33/1470 [00:55<34:56,  1.46s/batch, train_loss=0.000112]Epoch 1 [Training]:   2%|▏         | 33/1470 [00:55<34:56,  1.46s/batch, train_loss=0.000112]Epoch 1 [Training]:   2%|▏         | 33/1470 [00:56<34:56,  1.46s/batch, train_loss=0.000148]Epoch 1 [Training]:   2%|▏         | 34/1470 [00:56<34:55,  1.46s/batch, train_loss=0.000148]Epoch 1 [Training]:   2%|▏         | 34/1470 [00:56<34:55,  1.46s/batch, train_loss=0.000148]Epoch 1 [Training]:   2%|▏         | 34/1470 [00:58<34:55,  1.46s/batch, train_loss=0.000122]Epoch 1 [Training]:   2%|▏         | 35/1470 [00:58<34:53,  1.46s/batch, train_loss=0.000122]Epoch 1 [Training]:   2%|▏         | 35/1470 [00:58<34:53,  1.46s/batch, train_loss=0.000122]Epoch 1 [Training]:   2%|▏         | 35/1470 [00:59<34:53,  1.46s/batch, train_loss=0.000163]Epoch 1 [Training]:   2%|▏         | 36/1470 [00:59<34:53,  1.46s/batch, train_loss=0.000163]Epoch 1 [Training]:   2%|▏         | 36/1470 [00:59<34:53,  1.46s/batch, train_loss=0.000163]Epoch 1 [Training]:   2%|▏         | 36/1470 [01:01<34:53,  1.46s/batch, train_loss=0.000133]Epoch 1 [Training]:   3%|▎         | 37/1470 [01:01<34:52,  1.46s/batch, train_loss=0.000133]Epoch 1 [Training]:   3%|▎         | 37/1470 [01:01<34:52,  1.46s/batch, train_loss=0.000133]Epoch 1 [Training]:   3%|▎         | 37/1470 [01:02<34:52,  1.46s/batch, train_loss=0.000181]Epoch 1 [Training]:   3%|▎         | 38/1470 [01:02<34:50,  1.46s/batch, train_loss=0.000181]Epoch 1 [Training]:   3%|▎         | 38/1470 [01:02<34:50,  1.46s/batch, train_loss=0.000181]Epoch 1 [Training]:   3%|▎         | 38/1470 [01:04<34:50,  1.46s/batch, train_loss=0.000149]Epoch 1 [Training]:   3%|▎         | 39/1470 [01:04<34:48,  1.46s/batch, train_loss=0.000149]Epoch 1 [Training]:   3%|▎         | 39/1470 [01:04<34:48,  1.46s/batch, train_loss=0.000149]Epoch 1 [Training]:   3%|▎         | 39/1470 [01:05<34:48,  1.46s/batch, train_loss=0.00021] Epoch 1 [Training]:   3%|▎         | 40/1470 [01:05<34:46,  1.46s/batch, train_loss=0.00021]Epoch 1 [Training]:   3%|▎         | 40/1470 [01:05<34:46,  1.46s/batch, train_loss=0.00021]Epoch 1 [Training]:   3%|▎         | 40/1470 [01:07<34:46,  1.46s/batch, train_loss=0.000177]Epoch 1 [Training]:   3%|▎         | 41/1470 [01:07<34:45,  1.46s/batch, train_loss=0.000177]Epoch 1 [Training]:   3%|▎         | 41/1470 [01:07<34:45,  1.46s/batch, train_loss=0.000177]Epoch 1 [Training]:   3%|▎         | 41/1470 [01:08<34:45,  1.46s/batch, train_loss=0.000249]Epoch 1 [Training]:   3%|▎         | 42/1470 [01:08<34:43,  1.46s/batch, train_loss=0.000249]Epoch 1 [Training]:   3%|▎         | 42/1470 [01:08<34:43,  1.46s/batch, train_loss=0.000249]Epoch 1 [Training]:   3%|▎         | 42/1470 [01:10<34:43,  1.46s/batch, train_loss=0.000214]Epoch 1 [Training]:   3%|▎         | 43/1470 [01:10<34:43,  1.46s/batch, train_loss=0.000214]Epoch 1 [Training]:   3%|▎         | 43/1470 [01:10<34:43,  1.46s/batch, train_loss=0.000214]Epoch 1 [Training]:   3%|▎         | 43/1470 [01:11<34:43,  1.46s/batch, train_loss=0.000293]Epoch 1 [Training]:   3%|▎         | 44/1470 [01:11<34:40,  1.46s/batch, train_loss=0.000293]Epoch 1 [Training]:   3%|▎         | 44/1470 [01:11<34:40,  1.46s/batch, train_loss=0.000293]Epoch 1 [Training]:   3%|▎         | 44/1470 [01:12<34:40,  1.46s/batch, train_loss=0.000251]Epoch 1 [Training]:   3%|▎         | 45/1470 [01:12<34:39,  1.46s/batch, train_loss=0.000251]Epoch 1 [Training]:   3%|▎         | 45/1470 [01:12<34:39,  1.46s/batch, train_loss=0.000251]Epoch 1 [Training]:   3%|▎         | 45/1470 [01:14<34:39,  1.46s/batch, train_loss=0.00033] Epoch 1 [Training]:   3%|▎         | 46/1470 [01:14<34:39,  1.46s/batch, train_loss=0.00033]Epoch 1 [Training]:   3%|▎         | 46/1470 [01:14<34:39,  1.46s/batch, train_loss=0.00033]Epoch 1 [Training]:   3%|▎         | 46/1470 [01:15<34:39,  1.46s/batch, train_loss=0.000279]Epoch 1 [Training]:   3%|▎         | 47/1470 [01:15<34:36,  1.46s/batch, train_loss=0.000279]Epoch 1 [Training]:   3%|▎         | 47/1470 [01:15<34:36,  1.46s/batch, train_loss=0.000279]Epoch 1 [Training]:   3%|▎         | 47/1470 [01:17<34:36,  1.46s/batch, train_loss=0.00035] Epoch 1 [Training]:   3%|▎         | 48/1470 [01:17<34:33,  1.46s/batch, train_loss=0.00035]Epoch 1 [Training]:   3%|▎         | 48/1470 [01:17<34:33,  1.46s/batch, train_loss=0.00035]Epoch 1 [Training]:   3%|▎         | 48/1470 [01:18<34:33,  1.46s/batch, train_loss=0.00029]Epoch 1 [Training]:   3%|▎         | 49/1470 [01:18<34:32,  1.46s/batch, train_loss=0.00029]Epoch 1 [Training]:   3%|▎         | 49/1470 [01:18<34:32,  1.46s/batch, train_loss=0.00029]Epoch 1 [Training]:   3%|▎         | 49/1470 [01:20<34:32,  1.46s/batch, train_loss=0.00035]Epoch 1 [Training]:   3%|▎         | 50/1470 [01:20<34:32,  1.46s/batch, train_loss=0.00035]Epoch 1 [Training]:   3%|▎         | 50/1470 [01:20<34:32,  1.46s/batch, train_loss=0.00035]Epoch 1 [Training]:   3%|▎         | 50/1470 [01:21<34:32,  1.46s/batch, train_loss=0.000286]Epoch 1 [Training]:   3%|▎         | 51/1470 [01:21<34:31,  1.46s/batch, train_loss=0.000286]Epoch 1 [Training]:   3%|▎         | 51/1470 [01:21<34:31,  1.46s/batch, train_loss=0.000286]Epoch 1 [Training]:   3%|▎         | 51/1470 [01:23<34:31,  1.46s/batch, train_loss=0.000335]Epoch 1 [Training]:   4%|▎         | 52/1470 [01:23<34:33,  1.46s/batch, train_loss=0.000335]Epoch 1 [Training]:   4%|▎         | 52/1470 [01:23<34:33,  1.46s/batch, train_loss=0.000335]Epoch 1 [Training]:   4%|▎         | 52/1470 [01:24<34:33,  1.46s/batch, train_loss=0.000272]Epoch 1 [Training]:   4%|▎         | 53/1470 [01:24<34:31,  1.46s/batch, train_loss=0.000272]Epoch 1 [Training]:   4%|▎         | 53/1470 [01:24<34:31,  1.46s/batch, train_loss=0.000272]Epoch 1 [Training]:   4%|▎         | 53/1470 [01:26<34:31,  1.46s/batch, train_loss=0.000312]Epoch 1 [Training]:   4%|▎         | 54/1470 [01:26<34:30,  1.46s/batch, train_loss=0.000312]Epoch 1 [Training]:   4%|▎         | 54/1470 [01:26<34:30,  1.46s/batch, train_loss=0.000312]Epoch 1 [Training]:   4%|▎         | 54/1470 [01:27<34:30,  1.46s/batch, train_loss=0.000255]Epoch 1 [Training]:   4%|▎         | 55/1470 [01:27<34:27,  1.46s/batch, train_loss=0.000255]Epoch 1 [Training]:   4%|▎         | 55/1470 [01:27<34:27,  1.46s/batch, train_loss=0.000255]Epoch 1 [Training]:   4%|▎         | 55/1470 [01:29<34:27,  1.46s/batch, train_loss=0.00029] Epoch 1 [Training]:   4%|▍         | 56/1470 [01:29<34:23,  1.46s/batch, train_loss=0.00029]Epoch 1 [Training]:   4%|▍         | 56/1470 [01:29<34:23,  1.46s/batch, train_loss=0.00029]Epoch 1 [Training]:   4%|▍         | 56/1470 [01:30<34:23,  1.46s/batch, train_loss=0.000239]Epoch 1 [Training]:   4%|▍         | 57/1470 [01:30<34:21,  1.46s/batch, train_loss=0.000239]Epoch 1 [Training]:   4%|▍         | 57/1470 [01:30<34:21,  1.46s/batch, train_loss=0.000239]Epoch 1 [Training]:   4%|▍         | 57/1470 [01:31<34:21,  1.46s/batch, train_loss=0.000269]Epoch 1 [Training]:   4%|▍         | 58/1470 [01:31<34:20,  1.46s/batch, train_loss=0.000269]Epoch 1 [Training]:   4%|▍         | 58/1470 [01:31<34:20,  1.46s/batch, train_loss=0.000269]Epoch 1 [Training]:   4%|▍         | 58/1470 [01:33<34:20,  1.46s/batch, train_loss=0.000224]Epoch 1 [Training]:   4%|▍         | 59/1470 [01:33<34:18,  1.46s/batch, train_loss=0.000224]Epoch 1 [Training]:   4%|▍         | 59/1470 [01:33<34:18,  1.46s/batch, train_loss=0.000224]Epoch 1 [Training]:   4%|▍         | 59/1470 [01:34<34:18,  1.46s/batch, train_loss=0.00025] Epoch 1 [Training]:   4%|▍         | 60/1470 [01:34<34:16,  1.46s/batch, train_loss=0.00025]Epoch 1 [Training]:   4%|▍         | 60/1470 [01:34<34:16,  1.46s/batch, train_loss=0.00025]Epoch 1 [Training]:   4%|▍         | 60/1470 [01:36<34:16,  1.46s/batch, train_loss=0.000208]Epoch 1 [Training]:   4%|▍         | 61/1470 [01:36<34:15,  1.46s/batch, train_loss=0.000208]Epoch 1 [Training]:   4%|▍         | 61/1470 [01:36<34:15,  1.46s/batch, train_loss=0.000208]Epoch 1 [Training]:   4%|▍         | 61/1470 [01:37<34:15,  1.46s/batch, train_loss=0.00023] Epoch 1 [Training]:   4%|▍         | 62/1470 [01:37<34:14,  1.46s/batch, train_loss=0.00023]Epoch 1 [Training]:   4%|▍         | 62/1470 [01:37<34:14,  1.46s/batch, train_loss=0.00023]Epoch 1 [Training]:   4%|▍         | 62/1470 [01:39<34:14,  1.46s/batch, train_loss=0.000193]Epoch 1 [Training]:   4%|▍         | 63/1470 [01:39<34:12,  1.46s/batch, train_loss=0.000193]Epoch 1 [Training]:   4%|▍         | 63/1470 [01:39<34:12,  1.46s/batch, train_loss=0.000193]Epoch 1 [Training]:   4%|▍         | 63/1470 [01:40<34:12,  1.46s/batch, train_loss=0.000213]Epoch 1 [Training]:   4%|▍         | 64/1470 [01:40<34:10,  1.46s/batch, train_loss=0.000213]Epoch 1 [Training]:   4%|▍         | 64/1470 [01:40<34:10,  1.46s/batch, train_loss=0.000213]Epoch 1 [Training]:   4%|▍         | 64/1470 [01:42<34:10,  1.46s/batch, train_loss=0.00018] Epoch 1 [Training]:   4%|▍         | 65/1470 [01:42<34:09,  1.46s/batch, train_loss=0.00018]Epoch 1 [Training]:   4%|▍         | 65/1470 [01:42<34:09,  1.46s/batch, train_loss=0.00018]Epoch 1 [Training]:   4%|▍         | 65/1470 [01:43<34:09,  1.46s/batch, train_loss=0.0002] Epoch 1 [Training]:   4%|▍         | 66/1470 [01:43<34:08,  1.46s/batch, train_loss=0.0002]Epoch 1 [Training]:   4%|▍         | 66/1470 [01:43<34:08,  1.46s/batch, train_loss=0.0002]Epoch 1 [Training]:   4%|▍         | 66/1470 [01:44<37:00,  1.58s/batch, train_loss=0.0002]
+Traceback (most recent call last):
+  File "/workspace/byol_mri/pretrain_byol.py", line 469, in <module>
+    train_()
+  File "/workspace/byol_mri/pretrain_byol.py", line 375, in train_
+    loss = forward_pass_byol(
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/byol_mri/pretrain_byol.py", line 119, in forward_pass_byol
+    target_proj_2 = target_net(masked_kspace=kspace_und2,
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/byol_mri/models/varnet.py", line 428, in forward
+    enc_out = self.encoder(masked_kspace=masked_kspace,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/byol_mri/models/varnet.py", line 278, in forward
+    kspace_pred = cascade(kspace_pred, masked_kspace, mask, sens_maps)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/byol_mri/models/varnet.py", line 321, in forward
+    self.model(self.sens_reduce(current_kspace, sens_maps)), sens_maps
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/byol_mri/models/varnet.py", line 119, in forward
+    x = self.unet(x)
+        ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/byol_mri/models/unet.py", line 91, in forward
+    output = transpose_conv(output)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/byol_mri/models/unet.py", line 182, in forward
+    return self.layers(image)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/instancenorm.py", line 95, in forward
+    return self._apply_instance_norm(input)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/instancenorm.py", line 40, in _apply_instance_norm
+    self.running_var,
+    ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1716, in __getattr__
+    def __getattr__(self, name: str) -> Any:
+
+KeyboardInterrupt
+trainacc: [2, 4, 6, 8]
+valacc: [2, 4, 6, 8]
+tnv: 0
+vnv: 0
+viznv: 0
+mtype: random
+dset: fastmriknee
+seq_types: ['CORPDFS_FBK']
+bs: 2
+ne: 100
+lr: 0.001
+dv: cuda
+dp: None
+num_workers: 4
+tau: 0.996
+proj_dim: 256
+hidden_dim: 4096
+ckpt: None
+pf: 10
+num_cascades: 12
+pools: 4
+chans: 18
+sens_pools: 4
+sens_chans: 8
+data_path = /workspace/data
+experiment_path = /workspace/data/experiments/Experiment_2026_04_18_17_58_53
+No. of trainable parameters (online): 33115974
+num GPUs available: 1
+num GPUs using: 1
+GPU model: NVIDIA A100-SXM4-80GB
+/workspace/byol_mri/utils/data.py:20: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.library = torch.load(lib_path)
+Training set: No. of volumes: 83 | No. of slices: 2940
+CORPDFS_FBK : 83 | 2940
+Validation set: No. of volumes: 21 | No. of slices: 746
+CORPDFS_FBK : 21 | 746
+Optimizer: RMSprop | LR: 0.001 | Tau: 0.996
+  0%|          | 0/1470 [00:00<?, ?batch/s]/workspace/byol_mri/utils/data.py:66: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(self.root,"multicoil_"+self.key, f"{fname}.pt"))
+/workspace/byol_mri/utils/data.py:66: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(self.root,"multicoil_"+self.key, f"{fname}.pt"))
+/workspace/byol_mri/utils/data.py:66: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(self.root,"multicoil_"+self.key, f"{fname}.pt"))
+/workspace/byol_mri/utils/data.py:66: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(self.root,"multicoil_"+self.key, f"{fname}.pt"))
+Epoch 1 [Training]:   0%|          | 0/1470 [00:04<?, ?batch/s]Epoch 1 [Training]:   0%|          | 0/1470 [00:07<?, ?batch/s, train_loss=2.22]Epoch 1 [Training]:   0%|          | 1/1470 [00:07<3:15:27,  7.98s/batch, train_loss=2.22]Epoch 1 [Training]:   0%|          | 1/1470 [00:07<3:15:27,  7.98s/batch, train_loss=2.22]Epoch 1 [Training]:   0%|          | 1/1470 [00:09<3:15:27,  7.98s/batch, train_loss=0.387]Epoch 1 [Training]:   0%|          | 2/1470 [00:09<1:41:25,  4.15s/batch, train_loss=0.387]Epoch 1 [Training]:   0%|          | 2/1470 [00:09<1:41:25,  4.15s/batch, train_loss=0.387]Epoch 1 [Training]:   0%|          | 2/1470 [00:10<1:41:25,  4.15s/batch, train_loss=0.447]Epoch 1 [Training]:   0%|          | 3/1470 [00:10<1:11:21,  2.92s/batch, train_loss=0.447]Epoch 1 [Training]:   0%|          | 3/1470 [00:10<1:11:21,  2.92s/batch, train_loss=0.447]Epoch 1 [Training]:   0%|          | 3/1470 [00:12<1:11:21,  2.92s/batch, train_loss=0.199]Epoch 1 [Training]:   0%|          | 4/1470 [00:12<57:13,  2.34s/batch, train_loss=0.199]  Epoch 1 [Training]:   0%|          | 4/1470 [00:12<57:13,  2.34s/batch, train_loss=0.199]Epoch 1 [Training]:   0%|          | 4/1470 [00:13<57:13,  2.34s/batch, train_loss=0.0542]Epoch 1 [Training]:   0%|          | 5/1470 [00:13<49:22,  2.02s/batch, train_loss=0.0542]Epoch 1 [Training]:   0%|          | 5/1470 [00:13<49:22,  2.02s/batch, train_loss=0.0542]Epoch 1 [Training]:   0%|          | 5/1470 [00:15<49:22,  2.02s/batch, train_loss=0.0211]Epoch 1 [Training]:   0%|          | 6/1470 [00:15<44:39,  1.83s/batch, train_loss=0.0211]Epoch 1 [Training]:   0%|          | 6/1470 [00:15<44:39,  1.83s/batch, train_loss=0.0211]Epoch 1 [Training]:   0%|          | 6/1470 [00:16<44:39,  1.83s/batch, train_loss=0.01]  Epoch 1 [Training]:   0%|          | 7/1470 [00:16<41:38,  1.71s/batch, train_loss=0.01]Epoch 1 [Training]:   0%|          | 7/1470 [00:16<41:38,  1.71s/batch, train_loss=0.01]Epoch 1 [Training]:   0%|          | 7/1470 [00:18<1:06:09,  2.71s/batch, train_loss=0.01]
+Traceback (most recent call last):
+  File "/workspace/byol_mri/pretrain_byol.py", line 469, in <module>
+    train_()
+  File "/workspace/byol_mri/pretrain_byol.py", line 383, in train_
+    update_target_network(online_net, target_net, tau=args.tau)
+  File "/workspace/byol_mri/pretrain_byol.py", line 68, in update_target_network
+    target_params.data = (
+    ^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+trainacc: [2, 4, 6, 8]
+valacc: [2, 4, 6, 8]
+tnv: 0
+vnv: 0
+viznv: 0
+mtype: random
+dset: fastmriknee
+seq_types: ['CORPDFS_FBK']
+bs: 2
+ne: 100
+lr: 0.001
+dv: cuda
+dp: None
+num_workers: 4
+tau: 0.996
+proj_dim: 256
+hidden_dim: 4096
+ckpt: None
+pf: 10
+num_cascades: 12
+pools: 4
+chans: 18
+sens_pools: 4
+sens_chans: 8
+data_path = /workspace/data
+experiment_path = /workspace/data/experiments/Experiment_2026_04_18_17_59_27
+No. of trainable parameters (online): 33115974
+num GPUs available: 1
+num GPUs using: 1
+GPU model: NVIDIA A100-SXM4-80GB
+/workspace/byol_mri/utils/data.py:20: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.library = torch.load(lib_path)
+Training set: No. of volumes: 83 | No. of slices: 2940
+CORPDFS_FBK : 83 | 2940
+Validation set: No. of volumes: 21 | No. of slices: 746
+CORPDFS_FBK : 21 | 746
+Optimizer: RMSprop | LR: 0.001 | Tau: 0.996
+  0%|          | 0/1470 [00:00<?, ?batch/s]/workspace/byol_mri/utils/data.py:66: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(self.root,"multicoil_"+self.key, f"{fname}.pt"))
+/workspace/byol_mri/utils/data.py:66: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(self.root,"multicoil_"+self.key, f"{fname}.pt"))
+/workspace/byol_mri/utils/data.py:66: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(self.root,"multicoil_"+self.key, f"{fname}.pt"))
+/workspace/byol_mri/utils/data.py:66: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(self.root,"multicoil_"+self.key, f"{fname}.pt"))
+Epoch 1 [Training]:   0%|          | 0/1470 [00:03<?, ?batch/s]Epoch 1 [Training]:   0%|          | 0/1470 [00:07<?, ?batch/s, train_loss=2.22]Epoch 1 [Training]:   0%|          | 1/1470 [00:07<3:04:53,  7.55s/batch, train_loss=2.22]Epoch 1 [Training]:   0%|          | 1/1470 [00:07<3:04:53,  7.55s/batch, train_loss=2.22]Epoch 1 [Training]:   0%|          | 1/1470 [00:09<3:04:53,  7.55s/batch, train_loss=0.387]Epoch 1 [Training]:   0%|          | 2/1470 [00:09<1:39:45,  4.08s/batch, train_loss=0.387]Epoch 1 [Training]:   0%|          | 2/1470 [00:09<1:39:45,  4.08s/batch, train_loss=0.387]Epoch 1 [Training]:   0%|          | 2/1470 [00:10<1:39:45,  4.08s/batch, train_loss=0.447]Epoch 1 [Training]:   0%|          | 3/1470 [00:10<1:10:26,  2.88s/batch, train_loss=0.447]Epoch 1 [Training]:   0%|          | 3/1470 [00:10<1:10:26,  2.88s/batch, train_loss=0.447]Epoch 1 [Training]:   0%|          | 3/1470 [00:12<1:10:26,  2.88s/batch, train_loss=0.199]Epoch 1 [Training]:   0%|          | 4/1470 [00:12<56:40,  2.32s/batch, train_loss=0.199]  Epoch 1 [Training]:   0%|          | 4/1470 [00:12<56:40,  2.32s/batch, train_loss=0.199]Epoch 1 [Training]:   0%|          | 4/1470 [00:13<56:40,  2.32s/batch, train_loss=0.0542]Epoch 1 [Training]:   0%|          | 5/1470 [00:13<49:03,  2.01s/batch, train_loss=0.0542]Epoch 1 [Training]:   0%|          | 5/1470 [00:13<49:03,  2.01s/batch, train_loss=0.0542]Epoch 1 [Training]:   0%|          | 5/1470 [00:15<49:03,  2.01s/batch, train_loss=0.0211]Epoch 1 [Training]:   0%|          | 6/1470 [00:15<44:26,  1.82s/batch, train_loss=0.0211]Epoch 1 [Training]:   0%|          | 6/1470 [00:15<44:26,  1.82s/batch, train_loss=0.0211]Epoch 1 [Training]:   0%|          | 6/1470 [00:16<1:07:19,  2.76s/batch, train_loss=0.0211]
+Traceback (most recent call last):
+  File "/workspace/byol_mri/pretrain_byol.py", line 469, in <module>
+    train_()
+  File "/workspace/byol_mri/pretrain_byol.py", line 378, in train_
+    loss.backward()
+  File "/usr/local/lib/python3.11/dist-packages/torch/_tensor.py", line 521, in backward
+    torch.autograd.backward(
+  File "/usr/local/lib/python3.11/dist-packages/torch/autograd/__init__.py", line 289, in backward
+    _engine_run_backward(
+  File "/usr/local/lib/python3.11/dist-packages/torch/autograd/graph.py", line 769, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

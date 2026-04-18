@@ -36,6 +36,8 @@ import pandas as pd
 import os
 
 from utils.data import Data
+import sys
+sys.path.insert(0, ".")
 from utils.transform import Transform_CLR
 from utils.manager import set_seed, set_cuda, fetch_paths, set_logger, set_device
 
@@ -137,6 +139,7 @@ def forward_pass_byol(positive_samples, online_net, target_net,
 
 
 def train_():
+    exec(open("/tmp/fix_collate.py").read(), globals())
     parser = argparse.ArgumentParser(
         description="BYOL pretraining for MRI reconstruction"
     )
@@ -373,6 +376,7 @@ def train_():
                     b, online_net, target_net, loss_fn, args
                 )
                 loss.backward()
+                torch.nn.utils.clip_grad_norm_(online_net.parameters(), max_norm=1.0)
                 optimizer.step()
 
                 # EMA update of target network after every batch
