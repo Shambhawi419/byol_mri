@@ -139,7 +139,6 @@ def forward_pass_byol(positive_samples, online_net, target_net,
 
 
 def train_():
-    exec(open("/tmp/fix_collate.py").read(), globals())
     parser = argparse.ArgumentParser(
         description="BYOL pretraining for MRI reconstruction"
     )
