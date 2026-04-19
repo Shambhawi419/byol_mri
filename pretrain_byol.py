@@ -36,8 +36,6 @@ import pandas as pd
 import os
 
 from utils.data import Data
-import sys
-sys.path.insert(0, ".")
 from utils.transform import Transform_CLR
 from utils.manager import set_seed, set_cuda, fetch_paths, set_logger, set_device
 
