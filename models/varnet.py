@@ -334,13 +334,13 @@ class ProjectionMLP(nn.Module):
     Input:  VarNet output (b, coils, h, w, 2)
     Output: projection vector (b, proj_dim)
     """
-    def __init__(self, in_dim: int = 2,
+    def __init__(self, in_dim: int = 30,
                  hidden_dim: int = 4096,
                  out_dim: int = 256):
         super(ProjectionMLP, self).__init__()
+        self.pool = nn.AdaptiveAvgPool2d((1, 1))
+        self.flatten = nn.Flatten()
         self.net = nn.Sequential(
-            nn.AdaptiveAvgPool2d((1, 1)),
-            nn.Flatten(),
             nn.Linear(in_dim, hidden_dim),
             nn.LayerNorm(hidden_dim),
             nn.ReLU(inplace=True),
@@ -348,10 +348,14 @@ class ProjectionMLP(nn.Module):
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        # x: (b, coils, h, w, 2) -> collapse coils -> (b, h, w, 2)
-        x = x.mean(dim=1)
-        # (b, h, w, 2) -> (b, 2, h, w) for AdaptiveAvgPool2d
-        x = x.permute(0, 3, 1, 2)
+        # x: (b, coils, h, w, 2)
+        b, coils, h, w, c = x.shape
+        # reshape to (b, coils*2, h, w) keeping all coil+complex info
+        x = x.permute(0, 1, 4, 2, 3).reshape(b, coils * c, h, w)
+        # global average pool -> (b, coils*2, 1, 1)
+        x = self.pool(x)
+        # flatten -> (b, 30)
+        x = self.flatten(x)
         return self.net(x)
 
 
