@@ -183,13 +183,12 @@ class Transform_CLR:
             target_normalized = normalize(target, mean, std, eps=1e-11)
 
             # pad to fixed width 372 to handle variable width files
-            target_w = 400
+            target_w = 320
             curr_w = kspace_und.shape[-2]
-            if curr_w < target_w:
-                pad = target_w - curr_w
-                kspace_und = torch.nn.functional.pad(kspace_und, (0,0,0,pad))
-                mask = torch.nn.functional.pad(mask, (0,0,0,pad))
-                image_zf = torch.nn.functional.pad(image_zf, (0,pad))
+            if curr_w > target_w:
+                kspace_und = kspace_und[:, :target_w, :]
+                mask = mask[:, :, :target_w, :]
+                image_zf = image_zf[:target_w]
             sample.append(Sample_CLR(
             kspace_und=kspace_und,
             mask=mask,
