@@ -186,9 +186,10 @@ class Transform_CLR:
             target_w = 320
             curr_w = kspace_und.shape[-2]
             if curr_w > target_w:
-                kspace_und = kspace_und[:, :, :target_w, :]
-                mask = mask[:, :, :target_w, :]
-                image_zf = image_zf[:target_w]
+                start = (curr_w - target_w) // 2
+                kspace_und = kspace_und[:, :, start:start+target_w, :]
+                mask = mask[:, :, start:start+target_w, :]
+                image_zf = image_zf[:, start:start+target_w]
             sample.append(Sample_CLR(
             kspace_und=kspace_und,
             mask=mask,
