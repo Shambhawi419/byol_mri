@@ -407,7 +407,7 @@ class VarNetBYOL(nn.Module):
                  hidden_dim: int = 4096):
         super(VarNetBYOL, self).__init__()
         self.encoder = varnet
-        self.projector = ProjectionMLP(in_dim=2,
+        self.projector = ProjectionMLP(in_dim=30,
                                        hidden_dim=hidden_dim,
                                        out_dim=proj_dim)
         self.use_predictor = use_predictor
