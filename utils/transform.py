@@ -33,6 +33,12 @@ class Transform:
 
     def __call__(self, kspace_ori, fname, slice_num, sequence, max_val):
 
+        
+        target_w = 320
+        curr_w = kspace_ori.shape[-2]
+        if curr_w > target_w:
+            start = (curr_w - target_w) // 2
+            kspace_ori = kspace_ori[:, :, start:start+target_w, :]
         target = rss(complex_abs((ift(kspace_ori))))
 
         seed = int("".join(re.findall(r"\d+", fname))) if not self.train else None
@@ -84,6 +90,11 @@ class Transform_Noise:
         self.db = db
 
     def __call__(self, kspace_ori, fname, slice_num, sequence, max_val):
+        target_w = 320
+        curr_w = kspace_ori.shape[-2]
+        if curr_w > target_w:
+            start = (curr_w - target_w) // 2
+            kspace_ori = kspace_ori[:, :, start:start+target_w, :]
 
         target = rss(complex_abs((ift(kspace_ori))))
 
@@ -113,9 +124,10 @@ class Transform_Noise:
             raise ValueError("This code base currently accomodates only random masking.")
 
         mask = (mask==True).unsqueeze(-1).repeat(1,1,2).unsqueeze(0).repeat(kspace_ori.shape[0],1,1,1)
-
         image_zf2 = ift(kspace_und)
         image_zf = complex_abs(image_zf2)
+
+
 
         sample = Sample(
             kspace=kspace_ori,
@@ -151,6 +163,11 @@ class Transform_CLR:
         self.accelerations = accelerations
 
     def __call__(self, kspace_ori, fname, slice_num, sequence, max_val):
+        target_w = 320
+        curr_w = kspace_ori.shape[-2]
+        if curr_w > target_w:
+            start = (curr_w - target_w) // 2
+            kspace_ori = kspace_ori[:, :, start:start+target_w, :]
 
         target = rss(complex_abs((ift(kspace_ori))))
 
@@ -183,13 +200,7 @@ class Transform_CLR:
             target_normalized = normalize(target, mean, std, eps=1e-11)
 
             # pad to fixed width 372 to handle variable width files
-            target_w = 320
-            curr_w = kspace_und.shape[-2]
-            if curr_w > target_w:
-                start = (curr_w - target_w) // 2
-                kspace_und = kspace_und[:, :, start:start+target_w, :]
-                mask = mask[:, :, start:start+target_w, :]
-                image_zf = image_zf[:, start:start+target_w]
+            
             sample.append(Sample_CLR(
             kspace_und=kspace_und,
             mask=mask,
@@ -219,6 +230,12 @@ class Transform_CLR_with_scan_details:
         self.accelerations = accelerations
 
     def __call__(self, kspace_ori, fname, slice_num, sequence, max_val):
+        target_w = 320
+        curr_w = kspace_ori.shape[-2]
+        if curr_w > target_w:
+            start = (curr_w - target_w) // 2
+            kspace_ori = kspace_ori[:, :, start:start+target_w, :]
+ 
 
         target = rss(complex_abs((ift(kspace_ori))))
 
