@@ -31,6 +31,11 @@ for fname, slice_id in targets:
     print(f"\nProcessing {fname} slice {slice_id}...")
     data = torch.load(f'/workspace/data/multicoil_val/{fname}', weights_only=False)
     kspace = data['kspace'][slice_id]
+    curr_w = kspace.shape[-2]
+    if curr_w > 320:
+        start = (curr_w - 320) // 2
+        kspace = kspace[:, :, start:start+320, :]
+ 
 
     gt_np = rss(complex_abs(ifft2c(kspace))).numpy()
     gt_np = (gt_np - gt_np.min()) / (gt_np.max() - gt_np.min())
@@ -48,7 +53,8 @@ for fname, slice_id in targets:
     byol_net.eval()
     with torch.no_grad():
         out = byol_net(kspace_batch, mask_batch, nlf)
-        byol_np = rss(complex_abs(out)).squeeze().cpu().numpy()
+        out = rss(complex_abs(out))  # apply RSS to collapse coils
+        byol_np = out.squeeze().cpu().numpy()
         byol_np = (byol_np - byol_np.min()) / (byol_np.max() - byol_np.min())
     del byol_net
     torch.cuda.empty_cache()
@@ -58,7 +64,8 @@ for fname, slice_id in targets:
     simclr_net.eval()
     with torch.no_grad():
         out = simclr_net(kspace_batch, mask_batch, nlf)
-        simclr_np = rss(complex_abs(out)).squeeze().cpu().numpy()
+        out = rss(complex_abs(out))  # apply RSS to collapse coils
+        simclr_np = out.squeeze().cpu().numpy()
         simclr_np = (simclr_np - simclr_np.min()) / (simclr_np.max() - simclr_np.min())
     del simclr_net
     torch.cuda.empty_cache()
