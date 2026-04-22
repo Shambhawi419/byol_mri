@@ -11,27 +11,40 @@ from utils.mask import apply_random_mask
 
 os.makedirs('/workspace/output_images', exist_ok=True)
 targets = [('file1002163.pt', 17), ('file1002111.pt', 16)]
+
 byol_ckpt = torch.load('/workspace/checkpoints/BYOL/Experiment_2026_04_20_07_21_47_model.pth', map_location='cpu', weights_only=False)
 simclr_ckpt = torch.load('/workspace/checkpoints/SimCLR/Experiment_2026_04_21_05_37_11_model.pth', map_location='cpu', weights_only=False)
+
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print(f"Using device: {device}")
+
+def load_varnet(ckpt, key='best_model_state_dict'):
+    state_dict = ckpt[key]
+    varnet_dict = {k.replace('varnet_pretrained.', ''): v
+                   for k, v in state_dict.items()
+                   if k.startswith('varnet_pretrained.')}
+    net = VarNet(num_cascades=12, sens_chans=8, sens_pools=4, chans=18, pools=4)
+    net.load_state_dict(varnet_dict)
+    return net
 
 for fname, slice_id in targets:
     print(f"\nProcessing {fname} slice {slice_id}...")
     data = torch.load(f'/workspace/data/multicoil_val/{fname}', weights_only=False)
     kspace = data['kspace'][slice_id]
+
     gt_np = rss(complex_abs(ifft2c(kspace))).numpy()
     gt_np = (gt_np - gt_np.min()) / (gt_np.max() - gt_np.min())
+
     kspace_und, mask, acc, nlf = apply_random_mask(kspace, 4, 0.08)
     mask = (mask==True).unsqueeze(-1).repeat(1,1,2).unsqueeze(0).repeat(kspace.shape[0],1,1,1)
     zf_np = rss(complex_abs(ifft2c(kspace_und))).numpy()
     zf_np = (zf_np - zf_np.min()) / (zf_np.max() - zf_np.min())
+
     kspace_batch = kspace_und.unsqueeze(0).to(device)
     mask_batch = mask.unsqueeze(0).to(device)
 
     print("BYOL inference...")
-    byol_net = VarNet(num_cascades=12, sens_chans=8, sens_pools=4, chans=18, pools=4).to(device)
-    byol_net.load_state_dict(byol_ckpt['best_model_state_dict'])
+    byol_net = load_varnet(byol_ckpt).to(device)
     byol_net.eval()
     with torch.no_grad():
         out = byol_net(kspace_batch, mask_batch, nlf)
@@ -41,8 +54,7 @@ for fname, slice_id in targets:
     torch.cuda.empty_cache()
 
     print("SimCLR inference...")
-    simclr_net = VarNet(num_cascades=12, sens_chans=8, sens_pools=4, chans=18, pools=4).to(device)
-    simclr_net.load_state_dict(simclr_ckpt['best_model_state_dict'])
+    simclr_net = load_varnet(simclr_ckpt).to(device)
     simclr_net.eval()
     with torch.no_grad():
         out = simclr_net(kspace_batch, mask_batch, nlf)
