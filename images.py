@@ -27,15 +27,22 @@ def load_varnet(ckpt, key='best_model_state_dict'):
     net.load_state_dict(varnet_dict)
     return net
 
+def to_image(out):
+    out = (out ** 2).sum(dim=-1).sqrt()
+    out = (out ** 2).sum(dim=1).sqrt()
+    out = out.squeeze().cpu().numpy()
+    out = (out - out.min()) / (out.max() - out.min())
+    return out
+
 for fname, slice_id in targets:
     print(f"\nProcessing {fname} slice {slice_id}...")
     data = torch.load(f'/workspace/data/multicoil_val/{fname}', weights_only=False)
     kspace = data['kspace'][slice_id]
+
     curr_w = kspace.shape[-2]
     if curr_w > 320:
         start = (curr_w - 320) // 2
         kspace = kspace[:, :, start:start+320, :]
- 
 
     gt_np = rss(complex_abs(ifft2c(kspace))).numpy()
     gt_np = (gt_np - gt_np.min()) / (gt_np.max() - gt_np.min())
@@ -52,10 +59,7 @@ for fname, slice_id in targets:
     byol_net = load_varnet(byol_ckpt).to(device)
     byol_net.eval()
     with torch.no_grad():
-        out = byol_net(kspace_batch, mask_batch, nlf)
-        out = rss(complex_abs(out))  # apply RSS to collapse coils
-        byol_np = out.squeeze().cpu().numpy()
-        byol_np = (byol_np - byol_np.min()) / (byol_np.max() - byol_np.min())
+        byol_np = to_image(byol_net(kspace_batch, mask_batch, nlf))
     del byol_net
     torch.cuda.empty_cache()
 
@@ -63,10 +67,7 @@ for fname, slice_id in targets:
     simclr_net = load_varnet(simclr_ckpt).to(device)
     simclr_net.eval()
     with torch.no_grad():
-        out = simclr_net(kspace_batch, mask_batch, nlf)
-        out = rss(complex_abs(out))  # apply RSS to collapse coils
-        simclr_np = out.squeeze().cpu().numpy()
-        simclr_np = (simclr_np - simclr_np.min()) / (simclr_np.max() - simclr_np.min())
+        simclr_np = to_image(simclr_net(kspace_batch, mask_batch, nlf))
     del simclr_net
     torch.cuda.empty_cache()
 
